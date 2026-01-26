@@ -1,0 +1,5 @@
+config SHIELD_STRIZH_LEFT
+    def_bool $(shields_list_contains,strizh_left_7col)
+
+config SHIELD_STRIZH_RIGHT
+    def_bool $(shields_list_contains,strizh_right_trackpad)

@@ -1,0 +1,13 @@
+file_format: "1"
+id: strizh
+name: strizh
+type: shield
+url: https://github.com/ralex2304/strizh-keyboard
+requires:
+  - pro_micro
+features:
+  - keys
+  - studio
+siblings:
+  - strizh_left
+  - strizh_right
