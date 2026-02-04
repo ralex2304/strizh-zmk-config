@@ -1,4 +1,4 @@
-if SHIELD_STRIZH_LEFT
+if SHIELD_STRIZH_LEFT_7COL
 
 config ZMK_KEYBOARD_NAME
     default "strizh"
@@ -8,9 +8,19 @@ config ZMK_SPLIT_ROLE_CENTRAL
 
 endif
 
-if SHIELD_STRIZH_LEFT || SHIELD_STRIZH_RIGHT
+if SHIELD_STRIZH_LEFT_7COL || SHIELD_STRIZH_RIGHT_TRACKPAD
 
 config ZMK_SPLIT
+    default y
+
+config ZMK_POINTING
+    default y
+
+endif
+
+if SHIELD_STRIZH_RIGHT_TRACKPAD
+
+config SPI
     default y
 
 endif

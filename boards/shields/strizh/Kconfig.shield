@@ -1,5 +1,5 @@
-config SHIELD_STRIZH_LEFT
+config SHIELD_STRIZH_LEFT_7COL
     def_bool $(shields_list_contains,strizh_left_7col)
 
-config SHIELD_STRIZH_RIGHT
+config SHIELD_STRIZH_RIGHT_TRACKPAD
     def_bool $(shields_list_contains,strizh_right_trackpad)

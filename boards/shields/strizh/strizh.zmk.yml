@@ -7,7 +7,8 @@ requires:
   - pro_micro
 features:
   - keys
+  - pointer
   - studio
 siblings:
-  - strizh_left
-  - strizh_right
+  - strizh_left_7col
+  - strizh_right_trackpad
