@@ -27,9 +27,31 @@
         ;
 };
 
-&spi1 {
+&pinctrl {
+    spi1_default: spi1_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 22)>,
+                <NRF_PSEL(SPIM_MISO, 0, 20)>;
+        };
+    };
+
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 22)>,
+                <NRF_PSEL(SPIM_MISO, 0, 20)>;
+            low-power-enable;
+        };
+    };
+};
+
+&pro_micro_spi {
     status = "okay";
     cs-gpios = <&pro_micro 6 GPIO_ACTIVE_LOW>;
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-names = "default", "sleep";
 
     glidepoint: glidepoint@0 {
         compatible = "cirque,pinnacle";
@@ -38,16 +60,15 @@
         status = "okay";
         dr-gpios = <&pro_micro 5 GPIO_ACTIVE_HIGH>;
 
-        sensitivity = "4x";
-        sleep;
-        no-taps;
+        sensitivity = "1x";
+        rotate-90;
+        y-invert;
+        //sleep;
     };
 };
 
-&glidepoint_split {
+&glidepoint_listener {
+    status = "okay";
     device = <&glidepoint>;
-    // Input processors that are run before event data is sent
-    // to the central. Mostly useful for orientation fix ups.
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+    input-processors = <&zip_xy_scaler 5 2>;
 };
-
