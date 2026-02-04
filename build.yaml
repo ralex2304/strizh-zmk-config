@@ -3,5 +3,6 @@ include:
     shield: strizh_left_7col
   - board: nice_nano_v2
     shield: strizh_right_trackpad
+    snippet: zmk-usb-logging
   - board: nice_nano_v2
     shield: settings_reset
