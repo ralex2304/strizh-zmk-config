@@ -63,11 +63,10 @@
         sensitivity = "1x";
         rotate-90;
         y-invert;
-        //sleep;
     };
 };
 
-&glidepoint_listener {
+&glidepoint_split {
     status = "okay";
     device = <&glidepoint>;
     input-processors = <&zip_xy_scaler 5 2>;
